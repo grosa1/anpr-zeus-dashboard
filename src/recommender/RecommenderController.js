@@ -1,15 +1,13 @@
 import axios from 'axios';
-import Config from "../config";
+import Config from '../config'
 
-const HOST = Config.GITHUB_HOST;
+const HOST = Config.API_HOST;
+const PATH = "/recommendations";
+const BASE_URL = HOST + PATH;
 
-export function getRepoList(token) {
+export function getRecommendedUsers(loginName, repoName, isseNumber, token) {
     return new Promise((resolve, reject) => {
-        axios.get(HOST, {
-            headers: {
-                Authorization:  "token " + token
-            }
-        })
+        axios.get(`${BASE_URL}/get-assignees-for-issues/${loginName}/${repoName}/${isseNumber}/${token}`)
             .then(function (response) {
                 if (response.status === 200) {
                     resolve(response.data);
@@ -21,5 +19,3 @@ export function getRepoList(token) {
         });
     });
 }
-
-//https://api.github.com/user/repos?access_token=88fb84222da601030cc138a8d6b8aa179418ed18

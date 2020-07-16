@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import RepoList from './repository/RepoList'
+import Dashboard from "./dashboard/Dashboard";
 import './App.css';
 
 import Container from '@material-ui/core/Container';
@@ -12,7 +13,8 @@ class App extends Component {
     // this.setPage = this.setPage.bind(this);
     this.state = {
       pages: [],
-      currentPage: "repoList"
+      // currentPage: "page_repositories"
+      currentPage: "page_dashboard"
     }
   }
 
@@ -24,7 +26,8 @@ class App extends Component {
     return (
       <Container maxWidth="md">
         <div className="App">
-            { this.state.currentPage === 'repoList' ? <RepoList /> : "" }
+            { this.state.currentPage === 'page_repositories' ? <RepoList /> : "" }
+            { this.state.currentPage === 'page_dashboard' ? <Dashboard /> : "" }
         </div>
       </Container>
     )

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { getRepoList, TEST_TOKEN } from './RepoController'
+import { getRepoList } from './RepoController'
 import RepoItem from './RepoItem'
+import Config from "../config";
 
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 
 
 class RepoList extends Component {
+  TEST_TOKEN = Config.TEST_TOKEN;
 
   constructor() {
     super()
