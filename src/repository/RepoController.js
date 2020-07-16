@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const HOST = "https://api.github.com/user/repos";
-export const TEST_TOKEN = "2c3bc2ad04f0b4721677e640079c613f8983b1b1";
+export const TEST_TOKEN = "";
 
 export function getRepoList(token) {
     return new Promise((resolve, reject) => {
         axios.get(HOST, {
-            params: {
-                access_token: token
+            headers: {
+                Authorization:  "token " + token
             }
         })
             .then(function (response) {
