@@ -1,7 +1,6 @@
 import axios from 'axios';
-import Config from "../config";
 
-const HOST = Config.GITHUB_HOST;
+const HOST = "https://api.github.com/user/repos";
 
 export function getRepoList(token) {
     return new Promise((resolve, reject) => {

@@ -6,9 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import FolderIcon from '@material-ui/icons/Folder';
-import DeleteIcon from '@material-ui/icons/Delete';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 class RepoItem extends Component {
 
@@ -26,8 +25,8 @@ class RepoItem extends Component {
             secondary={ this.props.item.description ? this.props.item.description : 'Nessuna descrizione.' }
             />
             <ListItemSecondaryAction>
-            <IconButton edge="end" aria-label="delete">
-                <DeleteIcon />
+            <IconButton onClick={() => this.props.onSelect(this.props.item.full_name)}>
+                <ArrowRightIcon />
             </IconButton>
             </ListItemSecondaryAction>
         </ListItem>

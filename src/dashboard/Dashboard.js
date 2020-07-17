@@ -18,10 +18,20 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ListItemText from "@material-ui/core/ListItemText";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PeopleIcon from "@material-ui/icons/People";
+import BarChartIcon from "@material-ui/icons/BarChart";
+import LayersIcon from "@material-ui/icons/Layers";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ListIcon from '@material-ui/icons/List';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 
 function Copyright() {
   return (
@@ -117,7 +127,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+  console.log(props)
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -131,7 +142,7 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar position="fixed" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
@@ -143,12 +154,10 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            {props.repo}
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
+          <IconButton color="inherit" onClick={() => this.props.onLogout()}>
+            <ExitToAppIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -165,9 +174,34 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        <List>
+          <div>
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button onClick={() => props.onSelectRepo()}>
+              <ListItemIcon>
+                <ListIcon />
+              </ListItemIcon>
+              <ListItemText primary="Repositories" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <BarChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Metrics" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <AssignmentTurnedInIcon />
+              </ListItemIcon>
+              <ListItemText primary="Issues" />
+            </ListItem>
+          </div>
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

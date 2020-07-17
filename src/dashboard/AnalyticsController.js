@@ -1,8 +1,7 @@
 import axios from 'axios';
-import Config from '../config'
 
-const HOST = Config.API_HOST;
-const PATH = "/analytics";
+const HOST = "http://giovannirosa.com:8085";
+const PATH = "/zeus-api/analytics";
 const BASE_URL = HOST + PATH;
 
 const ROUTE_AVERAGE_CLOSING_TIME="/average-closing-time";
