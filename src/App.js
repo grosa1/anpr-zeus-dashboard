@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import RepoList from './repository/RepoList'
 import Dashboard from "./dashboard/Dashboard";
 import './App.css';
@@ -25,8 +24,12 @@ class App extends Component {
     }
   }
 
-  setPage(page) {
+  setCurrentPage(page) {
     this.setState({ currentPage: page });
+  }
+
+  setCurrentRepo(repo) {
+    this.setState({ currentRepo: repo });
   }
 
   login(userData) {
@@ -50,17 +53,17 @@ class App extends Component {
     switch (page) {
       case PAGE_LOGIN:
         return <SignIn onLogin={(userData) => {
-          this.setPage(PAGE_REPOS);
           this.login(userData);
+          this.setCurrentPage(PAGE_REPOS);
         }}/>
 
       case PAGE_REPOS:
         return <RepoList
             token={this.state.token}
             onSelect={(repo) => {
-              this.setPage(PAGE_DASHBOARD);
-              this.setState({currentRepo: repo})
-              }}
+              this.setCurrentRepo(repo)
+              this.setCurrentPage(PAGE_DASHBOARD);
+            }}
               onLogout={() => this.logout()}
             />
 
@@ -70,8 +73,8 @@ class App extends Component {
             user={this.state.user}
             token={this.state.token}
             onSelectRepo={() => {
-              this.setPage(PAGE_REPOS)
-              this.setState({currentRepo: ""})
+              this.setCurrentRepo("")
+              this.setCurrentPage(PAGE_REPOS)
             }}
             onLogout={() => this.logout()}
         />
