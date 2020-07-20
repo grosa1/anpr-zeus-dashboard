@@ -5,22 +5,19 @@ import RepoItem from './RepoItem'
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/Container";
-import clsx from "clsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
-import {makeStyles} from "@material-ui/core/styles";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
-const classes = makeStyles((theme) => ({
+const classes = {
     root: {
         flexGrow: 1,
     },
-    btn: {
+    btnLogout: {
         marginLeft: "auto"
     }
-}));
+};
 
 class RepoList extends Component {
 
@@ -43,12 +40,12 @@ class RepoList extends Component {
         <div className={classes.root}>
             <AppBar position="fixed">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
+                    <Typography variant="h6" style={classes.title}>
                         Select repository
                     </Typography>
                     <IconButton
                         color="inherit"
-                        style={{ marginLeft: "auto" }}
+                        style={classes.btnLogout}
                         onClick={() => this.props.onLogout()}
                     >
                         <ExitToAppIcon />
