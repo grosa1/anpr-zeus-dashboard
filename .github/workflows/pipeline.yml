@@ -9,7 +9,6 @@ on:
 
 jobs:
   sonarCloudTrigger:
-    needs: build
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
