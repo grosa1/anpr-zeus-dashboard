@@ -1,3 +1,10 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=bugs)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=sqale_index)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=grosa1_anpr-zeus-dashboard&metric=code_smells)](https://sonarcloud.io/dashboard?id=grosa1_anpr-zeus-dashboard)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
